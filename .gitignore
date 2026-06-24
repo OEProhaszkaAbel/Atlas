@@ -1,0 +1,32 @@
+# ── .NET ────────────────────────────────────────────────────
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.rsuser
+*.DotSettings.user
+launchSettings.json
+appsettings.Development.json
+
+# ── Entity Framework ────────────────────────────────────────
+*.db
+*.db-shm
+*.db-wal
+
+# ── Angular ─────────────────────────────────────────────────
+node_modules/
+dist/
+.angular/
+.sass-cache/
+*.js.map
+environment.prod.ts
+
+# ── General ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*

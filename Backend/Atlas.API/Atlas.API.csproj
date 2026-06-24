@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Atlas.Shared.Infrastructure\Atlas.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\Apps\Atlas.Auth\Atlas.Auth.Infrastructure\Atlas.Auth.Infrastructure.csproj" />
+    <ProjectReference Include="..\Apps\Atlas.Todo\Atlas.Todo.Infrastructure\Atlas.Todo.Infrastructure.csproj" />
+    <ProjectReference Include="..\Apps\Atlas.GymTracker\Atlas.GymTracker.Infrastructure\Atlas.GymTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\Apps\Atlas.BookTracker\Atlas.BookTracker.Infrastructure\Atlas.BookTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\Apps\Atlas.RecipeTracker\Atlas.RecipeTracker.Infrastructure\Atlas.RecipeTracker.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import { RouterOutlet } from '@angular/router';
+import { HlmToaster } from '@spartan-ng/helm/sonner';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
-  selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  selector: 'spartan-root',
+  imports: [RouterOutlet, HlmToaster],
+  template: `
+    <router-outlet />
+
+    @defer {
+      <hlm-toaster />
+    }
+  `,
 })
-export class App {
-  protected title = 'atlas';
-}
+export class App {}

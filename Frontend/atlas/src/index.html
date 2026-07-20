@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <title>atlas</title>
+    <title>spartan/ui agoge</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="spartan.svg" />
+
+    <script>
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      if (!('theme' in localStorage)) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          document.documentElement.classList[e.matches ? 'add' : 'remove']('dark');
+        });
+      }
+    </script>
   </head>
-  <body>
-    <app-root></app-root>
+  <body class="[--header-height:--spacing(14)]">
+    <spartan-root></spartan-root>
   </body>
 </html>

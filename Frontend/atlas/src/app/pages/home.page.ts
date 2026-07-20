@@ -1,0 +1,44 @@
+import { Component } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { simpleGithub } from '@ng-icons/simple-icons';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { config } from '../config';
+import { BaseLayout } from '../layouts/base.layout';
+import { Newsletter } from '../ui/newsletter';
+
+@Component({
+  selector: 'spartan-home-page',
+  imports: [BaseLayout, HlmButtonImports, NgIcon, Newsletter],
+  providers: [provideIcons({ simpleGithub })],
+  template: `
+    <spartan-base-layout>
+      <div class="flex flex-col items-center gap-4 py-10">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl">spartan/ui agoge</h1>
+          <p class="text-muted-foreground mt-3 text-lg text-balance md:text-xl">
+            Training ground for spartan/ui components
+          </p>
+        </div>
+
+        <div class="flex gap-2">
+          <a hlmBtn href="https://spartan.ng" target="_blank" rel="noopener noreferrer">
+            Checkout spartan/ui
+          </a>
+          <a
+            hlmBtn
+            variant="outline"
+            href="${config.github}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ng-icon name="simpleGithub" />
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <spartan-newsletter />
+    </spartan-base-layout>
+  `,
+})
+export class HomePage {}

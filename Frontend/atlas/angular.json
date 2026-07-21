@@ -10,30 +10,30 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": false,
-          "inlineStyle": false,
-          "skipTests": false
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "skipTests": true
         },
         "@schematics/angular:class": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:directive": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:guard": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:interceptor": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:resolver": {
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:service": {
-          "skipTests": false
+          "skipTests": true
         }
       },
       "root": "",

@@ -6,6 +6,12 @@ export const APP_ROUTES: Routes = [
     loadComponent: () => import('./pages/home.page').then((m) => m.HomePage),
   },
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/auth/auth.routes')
+        .then(r => r.AUTH_ROUTES)
+  },
+  {
     path: 'forms',
     children: [
       {

@@ -6,13 +6,13 @@ import {
 } from '@angular/platform-browser';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideSpartanHlm } from '@spartan-ng/helm/utils';
-import { routes } from './app.routes';
+import { APP_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(
-      routes,
+      APP_ROUTES,
       withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
     ),
     provideClientHydration(withEventReplay(), withNoIncrementalHydration()),

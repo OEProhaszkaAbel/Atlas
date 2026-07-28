@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [
+export const APP_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home.page').then((m) => m.HomePage),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/auth/auth.routes')
+        .then(r => r.AUTH_ROUTES)
   },
   {
     path: 'forms',

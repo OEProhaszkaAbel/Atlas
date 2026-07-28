@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
-    AbstractControl,
-    FormBuilder,
-    ReactiveFormsModule,
-    ValidationErrors,
-    ValidatorFn,
-    Validators,
+	AbstractControl,
+	FormBuilder,
+	ReactiveFormsModule,
+	ValidationErrors,
+	ValidatorFn,
+	Validators,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -15,11 +15,11 @@ import { HlmFieldImports } from '@spartan-ng/helm/field';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 
 @Component({
-    selector: 'spartan-two-column-signup-form',
-    imports: [ReactiveFormsModule, RouterLink, HlmFieldImports, HlmInputImports, HlmButtonImports, NgIcon],
-    providers: [], // provideIcons({ remixGithubFill })
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `
+	selector: 'spartan-two-column-signup-form',
+	imports: [ReactiveFormsModule, RouterLink, HlmFieldImports, HlmInputImports, HlmButtonImports, NgIcon],
+	providers: [], // provideIcons({ remixGithubFill })
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	template: `
 		<form [formGroup]="form" (ngSubmit)="signup()">
 			<hlm-field-group>
 				<div class="flex flex-col items-center gap-1 text-center">
@@ -78,7 +78,7 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 					</button>
 					<p hlmFieldDescription class="text-center">
 						Already have an account?
-						<a routerLink=".">Sign in</a>
+						<a routerLink="/auth/login">Sign in</a>
 					</p>
 				</hlm-field>
 			</hlm-field-group>
@@ -86,30 +86,30 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 	`,
 })
 export class RegisterForm {
-    private readonly _fb = inject(FormBuilder);
+	private readonly _fb = inject(FormBuilder);
 
-    public form = this._fb.group(
-        {
-            name: ['', [Validators.required]],
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(8)]],
-            confirmPassword: ['', [Validators.required]],
-        },
-        { validators: passwordMatch() },
-    );
+	public form = this._fb.group(
+		{
+			name: ['', [Validators.required]],
+			email: ['', [Validators.required, Validators.email]],
+			password: ['', [Validators.required, Validators.minLength(8)]],
+			confirmPassword: ['', [Validators.required]],
+		},
+		{ validators: passwordMatch() },
+	);
 
-    public signup() {
-        if (this.form.valid) {
-            // signup logic here
-            console.log(this.form.value);
-        }
-    }
+	public signup() {
+		if (this.form.valid) {
+			// signup logic here
+			console.log(this.form.value);
+		}
+	}
 }
 
 function passwordMatch(): ValidatorFn {
-    return (group: AbstractControl): ValidationErrors | null => {
-        const password = group.get('password')?.value;
-        const confirm = group.get('confirmPassword')?.value;
-        return password === confirm ? null : { passwordMismatch: true };
-    };
+	return (group: AbstractControl): ValidationErrors | null => {
+		const password = group.get('password')?.value;
+		const confirm = group.get('confirmPassword')?.value;
+		return password === confirm ? null : { passwordMismatch: true };
+	};
 }

@@ -47,7 +47,7 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 					</button>
 					<p hlmFieldDescription class="text-center">
 						Don't have an account?
-						<a routerLink=".">Sign up</a>
+						<a routerLink="/auth/register">Sign up</a>
 					</p>
 				</hlm-field>
 			</hlm-field-group>

@@ -12,6 +12,12 @@ export const APP_ROUTES: Routes = [
         .then(r => r.AUTH_ROUTES)
   },
   {
+    path: 'gym',
+    loadChildren: () =>
+      import('./features/gym/gym.routes')
+        .then(r => r.GYM_ROUTES)
+  },
+  {
     path: 'forms',
     children: [
       {

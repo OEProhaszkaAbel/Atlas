@@ -1,0 +1,12 @@
+<p>set-type-picker-component works!</p>
+<hlm-combobox>
+    <hlm-combobox-input placeholder="Select a set type" />
+    <hlm-combobox-content *hlmComboboxPortal>
+        <hlm-combobox-empty>No items found.</hlm-combobox-empty>
+        <div hlmComboboxList>
+            @for (setType of setTypes; track $index) {
+            <hlm-combobox-item [value]="setType.name">{{ setType.name }}</hlm-combobox-item>
+            }
+        </div>
+    </hlm-combobox-content>
+</hlm-combobox>

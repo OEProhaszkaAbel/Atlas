@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'spartan-workout-history-component',
+  selector: 'workout-history-component',
   imports: [],
   templateUrl: './workout-history-component.html',
   styleUrl: './workout-history-component.css',

@@ -11,7 +11,7 @@ import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
 
 
 @Component({
-  selector: 'spartan-workout-component',
+  selector: 'workout-component',
   imports: [HlmSeparatorImports,
     HlmCardImports, HlmFieldImports, HlmInputImports, HlmButtonImports, HlmItemImports
   ],

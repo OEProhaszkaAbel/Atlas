@@ -39,7 +39,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "spartan",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular/build:application",

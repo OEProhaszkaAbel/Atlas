@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
 import { RepRange } from '@gym-models/Exercises/RepRange';
-import { RestTime } from '@gym-models/Exercises/RestTime';
+import { EMPTY_REST_TIME, RestTime } from '@gym-models/Exercises/RestTime';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronDown, lucideChevronUp, lucidePlus } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
@@ -28,7 +28,7 @@ export class WorkoutExercise {
       weight: 0,
       reps: 0,
       repRange: {} as RepRange,
-      restTime: { minRestTime: 300, maxRestTime: 0 } as RestTime,
+      restTime: EMPTY_REST_TIME,
     } as ExerciseSet,
   ]);
   public isSetsEmpty = computed(() => this.sets().length === 0);

@@ -41,7 +41,8 @@
       "@spartan-ng/helm/combobox": ["./libs/ui/combobox/src/index.ts"],
       "@spartan-ng/helm/item": ["./libs/ui/item/src/index.ts"],
       "@gym-models/*": ["./src/app/features/gym/models/*"],
-      "@spartan-ng/helm/popover": ["./libs/ui/popover/src/index.ts"]
+      "@spartan-ng/helm/popover": ["./libs/ui/popover/src/index.ts"],
+      "@directives/*": ["./src/app/shared/directives/*"],
     }
   },
   "angularCompilerOptions": {

@@ -1,0 +1,51 @@
+<hlm-popover sideOffset="5" align="start" [closeOnOutsidePointerEvents]="true">
+  <button
+    hlmPopoverTrigger
+    hlmBtn
+    [variant]="buttonVariant()"
+    size="icon"
+    class="transition-colors duration-300 ease-in-out"
+  >
+    @if (isEmpty()) {
+      <ng-icon name="lucideClockPlus" class="text-yellow-600" />
+    } @else if (isInvalid()) {
+      <ng-icon name="lucideClockAlert" class="animate-pulse text-red-600" />
+    } @else {
+      <ng-icon name="lucideClockCheck" class="text-green-600" />
+    }
+  </button>
+  <hlm-popover-content *hlmPopoverPortal="let ctx">
+    <hlm-field>
+      <hlm-input-group>
+        <input
+          hlmInputGroupInput
+          id="min-rest-time-group"
+          type="number"
+          placeholder="Min rest time"
+          [(ngModel)]="restTime().minRestTime"
+          (ngModelChange)="onMinRestTimeChange($event)"
+          min="0"
+          onlyInteger
+        />
+
+        <hlm-input-group-addon align="inline-start"> min </hlm-input-group-addon>
+        <hlm-input-group-addon align="inline-end"> sec </hlm-input-group-addon>
+      </hlm-input-group>
+      <hlm-input-group>
+        <input
+          hlmInputGroupInput
+          id="max-rest-time-group"
+          type="number"
+          placeholder="Max rest time"
+          [(ngModel)]="restTime().maxRestTime"
+          (ngModelChange)="onMaxRestTimeChange($event)"
+          min="0"
+          onlyInteger
+        />
+
+        <hlm-input-group-addon align="inline-start"> max </hlm-input-group-addon>
+        <hlm-input-group-addon align="inline-end"> sec </hlm-input-group-addon>
+      </hlm-input-group>
+    </hlm-field>
+  </hlm-popover-content>
+</hlm-popover>

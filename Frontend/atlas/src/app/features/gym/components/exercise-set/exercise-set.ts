@@ -2,20 +2,15 @@ import { Component, input, output, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
 import { SetType } from '@gym-models/Exercises/SetType';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import {
-  lucideClockAlert,
-  lucideClockCheck,
-  lucideClockPlus,
-  lucideDelete,
-} from '@ng-icons/lucide';
+import { lucideDelete } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmCheckboxImports } from '@spartan-ng/helm/checkbox';
 import { HlmComboboxImports } from '@spartan-ng/helm/combobox';
 import { HlmFieldImports } from '@spartan-ng/helm/field';
 import { HlmInputImports } from '@spartan-ng/helm/input';
-import { HlmPopoverImports } from '@spartan-ng/helm/popover';
 import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
+import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
 
 @Component({
   selector: 'exercise-set',
@@ -27,10 +22,10 @@ import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
     HlmTextareaImports,
     HlmComboboxImports,
     HlmInputImports,
-    HlmPopoverImports,
     NgIcon,
+    RestTimePopover,
   ],
-  providers: [provideIcons({ lucideDelete, lucideClockPlus, lucideClockAlert, lucideClockCheck })],
+  providers: [provideIcons({ lucideDelete })],
   templateUrl: './exercise-set.html',
   styleUrl: './exercise-set.css',
 })

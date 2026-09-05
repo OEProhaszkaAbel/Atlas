@@ -27,23 +27,7 @@
 
   <input hlmInput placeholder="Enter reps" />
 
-  <hlm-popover sideOffset="5" align="start">
-    <button hlmPopoverTrigger hlmBtn variant="outline" size="icon">
-      @if (set().restTime.minRestTime === 0 && set().restTime.maxRestTime === 0) {
-        <ng-icon name="lucideClockPlus" class="text-yellow-600 hover:bg-amber-200" />
-      } @else if (set().restTime.minRestTime > set().restTime.maxRestTime) {
-        <ng-icon name="lucideClockAlert" class="text-red-600 hover:bg-red-600/50" />
-      } @else {
-        <ng-icon name="lucideClockCheck" class="text-green-600 hover:bg-green-300/50" />
-      }
-    </button>
-    <hlm-popover-content *hlmPopoverPortal="let ctx">
-      <hlm-popover-header>
-        <div hlmPopoverTitle>Dimensions</div>
-        <p hlmPopoverDescription>Set the dimensions for the layer.</p>
-      </hlm-popover-header>
-    </hlm-popover-content>
-  </hlm-popover>
+  <rest-time-popover [(restTime)]="set().restTime" />
 
   <button
     hlmBtn

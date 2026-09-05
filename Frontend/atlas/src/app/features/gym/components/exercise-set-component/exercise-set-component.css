@@ -2,7 +2,7 @@
 
 /* Div hover state */
 div[hlmFieldGroup]:hover {
-  background-color: rgb(var(--accent) / 0.5);
+  background-color: var(--accent);
 }
 
 /* Styles for when the checkbox is checked */

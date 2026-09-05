@@ -1,8 +1,8 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[spartanAppOnlyInteger]',
-  standalone: true
+  selector: '[onlyInteger]',
+  standalone: true,
 })
 export class OnlyIntegerDirective {
   private invalidKeys = ['.', ',', 'e', 'E', '+', '-'];

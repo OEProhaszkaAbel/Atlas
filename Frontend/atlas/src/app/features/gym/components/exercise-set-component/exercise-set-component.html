@@ -1,0 +1,42 @@
+<!-- pipa; szett-típus; rep-range; rest-time; delete-set-gomb -->
+<fieldset hlmFieldSet>
+  <div hlmFieldGroup>
+    <label
+      class="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-3"
+      [class]="color()"
+    >
+      <hlm-checkbox
+        inputId="toggle-2"
+        [checked]="set().isCompleted"
+        (click)="completionChanged.emit(set().isCompleted)"
+        class="h-7 data-[state=checked]:border-green-600 data-[state=checked]:bg-green-600 data-[state=checked]:text-white dark:data-[state=checked]:border-green-700 dark:data-[state=checked]:bg-green-700"
+      />
+      <div class="flex-column flex gap-1.5 font-normal">
+        <hlm-combobox>
+          <hlm-combobox-input placeholder="Select a set type" showClear />
+          <hlm-combobox-content *hlmComboboxPortal>
+            <hlm-combobox-empty>No items found.</hlm-combobox-empty>
+            <div hlmComboboxList>
+              @for (setType of setTypes; track $index) {
+                <hlm-combobox-item [value]="setType">{{ setType.name }}</hlm-combobox-item>
+              }
+            </div>
+          </hlm-combobox-content>
+        </hlm-combobox>
+
+        <input hlmInput placeholder="Enter reps" />
+        <input hlmInput placeholder="Enter rest time" />
+        <button
+          hlmBtn
+          variant="destructive"
+          size="icon"
+          (click)="deleteSet.emit()"
+          (mouseenter)="setToRed()"
+          (mouseleave)="setToGreen()"
+        >
+          <ng-icon name="lucideDelete" />
+        </button>
+      </div>
+    </label>
+  </div>
+</fieldset>

@@ -1,1 +1,37 @@
-<p>workout-exercise works!</p>
+<hlm-card size="default" class="w-full max-w-sm">
+  <hlm-card-header class="flex flex-row">
+    <h3 hlmCardTitle>Feladat_Név - Szettek_Száma</h3>
+    <h3 hlmCardTitle class="ml-auto">VARIÁCIÓ</h3>
+    <button hlmBtn variant="outline" size="xs" class="ml-auto gap-2" (click)="toggleExpanded()">
+      @if (isExpanded()) {
+        <ng-icon name="lucideChevronUp" />
+      } @else {
+        <ng-icon name="lucideChevronDown" />
+      }
+    </button>
+  </hlm-card-header>
+
+  @if (isExpanded()) {
+    <hlm-separator />
+
+    @if (!isSetsEmpty()) {
+      <div hlmCardContent>
+        @for (set of sets(); track set) {
+          <exercise-set-component
+            [set]="set"
+            (deleteSet)="deleteSet(set)"
+            (completionChanged)="completedSet(set)"
+          />
+        }
+      </div>
+    } @else {
+      <h1>empty</h1>
+    }
+    <hlm-card-footer>
+      <button hlmBtn variant="outline" size="icon" class="w-full gap-2" (click)="addSet()">
+        <ng-icon name="lucidePlus" />
+        Add set
+      </button>
+    </hlm-card-footer>
+  }
+</hlm-card>

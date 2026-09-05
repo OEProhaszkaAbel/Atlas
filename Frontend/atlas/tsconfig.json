@@ -39,7 +39,8 @@
       "@spartan-ng/helm/dropdown-menu": ["./libs/ui/dropdown-menu/src/index.ts"],
       "@spartan-ng/helm/avatar": ["./libs/ui/avatar/src/index.ts"],
       "@spartan-ng/helm/combobox": ["./libs/ui/combobox/src/index.ts"],
-      "@spartan-ng/helm/item": ["./libs/ui/item/src/index.ts"]
+      "@spartan-ng/helm/item": ["./libs/ui/item/src/index.ts"],
+      "@gym-models/*": ["./src/app/features/gym/models/*"],
     }
   },
   "angularCompilerOptions": {

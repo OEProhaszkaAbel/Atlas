@@ -1,42 +1,43 @@
 <!-- pipa; szett-típus; rep-range; rest-time; delete-set-gomb -->
-<fieldset hlmFieldSet>
-  <div hlmFieldGroup>
-    <label
-      class="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-3"
-      [class]="color()"
-    >
-      <hlm-checkbox
-        inputId="toggle-2"
-        [checked]="set().isCompleted"
-        (click)="completionChanged.emit(set().isCompleted)"
-        class="h-7 data-[state=checked]:border-green-600 data-[state=checked]:bg-green-600 data-[state=checked]:text-white dark:data-[state=checked]:border-green-700 dark:data-[state=checked]:bg-green-700"
-      />
-      <div class="flex-column flex gap-1.5 font-normal">
-        <hlm-combobox>
-          <hlm-combobox-input placeholder="Select a set type" showClear />
-          <hlm-combobox-content *hlmComboboxPortal>
-            <hlm-combobox-empty>No items found.</hlm-combobox-empty>
-            <div hlmComboboxList>
-              @for (setType of setTypes; track $index) {
-                <hlm-combobox-item [value]="setType">{{ setType.name }}</hlm-combobox-item>
-              }
-            </div>
-          </hlm-combobox-content>
-        </hlm-combobox>
+<!-- TODO: add animation for the elements appearing and disappearing -->
 
-        <input hlmInput placeholder="Enter reps" />
-        <input hlmInput placeholder="Enter rest time" />
-        <button
-          hlmBtn
-          variant="destructive"
-          size="icon"
-          (click)="deleteSet.emit()"
-          (mouseenter)="setToRed()"
-          (mouseleave)="setToGreen()"
-        >
-          <ng-icon name="lucideDelete" />
-        </button>
+<div
+  hlmFieldGroup
+  [attr.data-isHovered]="isHovered()"
+  class="mb-1 flex flex-row items-center gap-1.5 rounded-lg border p-3 font-normal"
+  (click)="toggleCompletion()"
+>
+  <hlm-checkbox
+    inputId="toggle-2"
+    id="set-completion-checkbox"
+    [checked]="set().isCompleted"
+    (click)="toggleCompletion()"
+  />
+
+  <hlm-combobox>
+    <hlm-combobox-input placeholder="Select a set type" showClear />
+    <hlm-combobox-content *hlmComboboxPortal>
+      <hlm-combobox-empty>No items found.</hlm-combobox-empty>
+      <div hlmComboboxList>
+        @for (setType of setTypes; track $index) {
+          <hlm-combobox-item [value]="setType">{{ setType.name }}</hlm-combobox-item>
+        }
       </div>
-    </label>
-  </div>
-</fieldset>
+    </hlm-combobox-content>
+  </hlm-combobox>
+
+  <input hlmInput placeholder="Enter reps" />
+  <input hlmInput placeholder="Enter rest time" />
+  <button
+    hlmBtn
+    variant="destructive"
+    size="icon"
+    title="Delete set"
+    (click)="onDelete()"
+    [attr.data-isHovered]="isHovered()"
+    (mouseenter)="isHovered.set(true)"
+    (mouseleave)="isHovered.set(false)"
+  >
+    <ng-icon name="lucideDelete" />
+  </button>
+</div>

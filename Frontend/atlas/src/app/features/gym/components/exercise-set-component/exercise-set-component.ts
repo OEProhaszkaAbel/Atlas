@@ -36,27 +36,16 @@ export class ExerciseSetComponent {
   public completionChanged = output<boolean>();
   public deleteSet = output<void>();
 
-  public color = signal<string>('');
-  public isRed = signal<boolean>(false);
+  public isHovered = signal<boolean>(false);
 
-  constructor() {
-    this.color.set(this.DEFAULT_CLASSES);
+  constructor() {}
+
+  onDelete() {
+    this.deleteSet.emit();
   }
 
-  private TRANSITION_CLASSES: string = 'transition-all duration-200 ease-in-out';
-  private DEFAULT_CLASSES: string =
-    '    has-[[aria-checked=true]]:border-green-600 has-[[aria-checked=true]]:bg-green-50 dark:has-[[aria-checked=true]]:border-green-900 dark:has-[[aria-checked=true]]:bg-green-950';
-
-  setToRed() {
-    this.color.update(
-      () =>
-        `border-red-600 bg-red-50 dark:border-red-900 dark:bg-red-950 ${this.TRANSITION_CLASSES}`,
-    );
-    this.isRed.set(true);
-  }
-
-  setToGreen() {
-    this.color.update(() => this.DEFAULT_CLASSES);
-    this.isRed.set(false);
+  toggleCompletion() {
+    this.set().isCompleted = !this.set().isCompleted;
+    this.completionChanged.emit(this.set().isCompleted);
   }
 }

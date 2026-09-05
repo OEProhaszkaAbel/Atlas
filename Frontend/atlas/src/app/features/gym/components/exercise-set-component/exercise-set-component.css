@@ -1,0 +1,31 @@
+@reference "tailwindcss";
+
+/* Div hover state */
+div[hlmFieldGroup]:hover {
+  background-color: rgb(var(--accent) / 0.5);
+}
+
+/* Styles for when the checkbox is checked */
+div[hlmFieldGroup]:has([aria-checked='true']) {
+  @apply border-green-600 bg-green-50;
+}
+
+hlm-checkbox[data-state='checked'] {
+  @apply border-green-600 bg-green-600 text-white;
+}
+
+div[hlmFieldGroup]:has([data-isHovered='true']) {
+  @apply border-red-600 bg-red-50;
+}
+
+@media (prefers-color-scheme: dark) {
+  div[hlmFieldGroup]:has([aria-checked='true']) {
+    @apply border-green-900 bg-green-950;
+  }
+  hlm-checkbox[data-state='checked'] {
+    @apply border-green-700 bg-green-700;
+  }
+  div[hlmFieldGroup]:has([data-isHovered='true']) {
+    @apply border-red-900 bg-red-950;
+  }
+}

@@ -1,0 +1,32 @@
+<div>
+  <button hlmBtn variant="outline" [hlmDropdownMenuTrigger]="setTypes" align="end">
+    <span
+      [class]="getLetterColorClass(selectedSetType())"
+      class="inline-flex size-6 items-center justify-center rounded-full"
+    >
+      {{ selectedSetLetter() }}
+    </span>
+  </button>
+
+  <ng-template #setTypes>
+    <hlm-dropdown-menu class="w-48">
+      @for (type of getSetTypes(); track $index) {
+        <hlm-dropdown-menu-item class="p-0" (click)="changeSetType(type)">
+          <hlm-item size="xs" class="w-full p-2">
+            <hlm-item-media>
+              <span
+                [class]="getLetterColorClass(type)"
+                class="inline-flex size-6.5 items-center justify-center rounded-full text-xl"
+              >
+                {{ type.name.charAt(0).toUpperCase() }}
+              </span>
+            </hlm-item-media>
+            <hlm-item-content class="gap-0">
+              <hlm-item-title [title]="type.description">{{ type.name }}</hlm-item-title>
+            </hlm-item-content>
+          </hlm-item>
+        </hlm-dropdown-menu-item>
+      }
+    </hlm-dropdown-menu>
+  </ng-template>
+</div>

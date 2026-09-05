@@ -13,17 +13,7 @@
     (click)="toggleCompletion()"
   />
 
-  <hlm-combobox>
-    <hlm-combobox-input placeholder="Select a set type" showClear />
-    <hlm-combobox-content *hlmComboboxPortal>
-      <hlm-combobox-empty>No items found.</hlm-combobox-empty>
-      <div hlmComboboxList>
-        @for (setType of setTypes; track $index) {
-          <hlm-combobox-item [value]="setType">{{ setType.name }}</hlm-combobox-item>
-        }
-      </div>
-    </hlm-combobox-content>
-  </hlm-combobox>
+  <set-type-dropdown [(selectedSetType)]="set().setType" />
 
   <input hlmInput placeholder="Enter reps" />
 

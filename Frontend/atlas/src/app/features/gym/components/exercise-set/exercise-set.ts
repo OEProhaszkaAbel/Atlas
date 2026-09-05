@@ -1,6 +1,5 @@
 import { Component, input, output, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
-import { SetType } from '@gym-models/Exercises/SetType';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideDelete } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
@@ -11,6 +10,7 @@ import { HlmFieldImports } from '@spartan-ng/helm/field';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
 import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
+import { SetTypeDropdown } from '../set-type-combobox/set-type-dropdown';
 
 @Component({
   selector: 'exercise-set',
@@ -24,6 +24,7 @@ import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
     HlmInputImports,
     NgIcon,
     RestTimePopover,
+    SetTypeDropdown,
   ],
   providers: [provideIcons({ lucideDelete })],
   templateUrl: './exercise-set.html',
@@ -31,10 +32,6 @@ import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
 })
 export class ExerciseSetComponent {
   public set = input<ExerciseSet>({} as ExerciseSet);
-  public setTypes: SetType[] = [
-    { name: 'Normal Set', description: 'Description for Set Type 1' } as SetType,
-    { name: 'Giant Set', description: 'Description for  Set Type 2' } as SetType,
-  ];
   public completionChanged = output<boolean>();
   public deleteSet = output<void>();
 

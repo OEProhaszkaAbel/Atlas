@@ -17,7 +17,7 @@
     @if (!isSetsEmpty()) {
       <div hlmCardContent>
         @for (set of sets(); track set) {
-          <exercise-set-component
+          <exercise-set
             [set]="set"
             (deleteSet)="deleteSet(set)"
             (completionChanged)="completedSet(set)"

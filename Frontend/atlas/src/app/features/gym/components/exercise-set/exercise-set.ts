@@ -2,17 +2,23 @@ import { Component, input, output, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
 import { SetType } from '@gym-models/Exercises/SetType';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideDelete } from '@ng-icons/lucide';
+import {
+  lucideClockAlert,
+  lucideClockCheck,
+  lucideClockPlus,
+  lucideDelete,
+} from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmCheckboxImports } from '@spartan-ng/helm/checkbox';
 import { HlmComboboxImports } from '@spartan-ng/helm/combobox';
 import { HlmFieldImports } from '@spartan-ng/helm/field';
 import { HlmInputImports } from '@spartan-ng/helm/input';
+import { HlmPopoverImports } from '@spartan-ng/helm/popover';
 import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
 
 @Component({
-  selector: 'exercise-set-component',
+  selector: 'exercise-set',
   imports: [
     HlmCardImports,
     HlmButtonImports,
@@ -21,11 +27,12 @@ import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
     HlmTextareaImports,
     HlmComboboxImports,
     HlmInputImports,
+    HlmPopoverImports,
     NgIcon,
   ],
-  providers: [provideIcons({ lucideDelete })],
-  templateUrl: './exercise-set-component.html',
-  styleUrl: './exercise-set-component.css',
+  providers: [provideIcons({ lucideDelete, lucideClockPlus, lucideClockAlert, lucideClockCheck })],
+  templateUrl: './exercise-set.html',
+  styleUrl: './exercise-set.css',
 })
 export class ExerciseSetComponent {
   public set = input<ExerciseSet>({} as ExerciseSet);

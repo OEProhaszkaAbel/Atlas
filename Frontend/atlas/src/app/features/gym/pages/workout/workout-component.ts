@@ -8,12 +8,13 @@ import { HlmItemImports } from '@spartan-ng/helm/item';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideBadgeCheck, lucideChevronRight } from '@ng-icons/lucide';
 import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
+import { WorkoutExercise } from '../../components/workout-exercise/workout-exercise';
 
 
 @Component({
   selector: 'workout-component',
   imports: [HlmSeparatorImports,
-    HlmCardImports, HlmFieldImports, HlmInputImports, HlmButtonImports, HlmItemImports
+    HlmCardImports, HlmFieldImports, HlmInputImports, HlmButtonImports, HlmItemImports, WorkoutExercise
   ],
   providers: [provideIcons({ lucideBadgeCheck, lucideChevronRight })],
   templateUrl: './workout-component.html',

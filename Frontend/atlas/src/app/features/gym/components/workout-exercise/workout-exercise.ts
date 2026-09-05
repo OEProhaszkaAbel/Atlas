@@ -7,7 +7,7 @@ import { lucideChevronDown, lucideChevronUp, lucidePlus } from '@ng-icons/lucide
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmSeparator } from '@spartan-ng/helm/separator';
-import { ExerciseSetComponent } from '../exercise-set-component/exercise-set-component';
+import { ExerciseSetComponent } from '../exercise-set/exercise-set';
 
 @Component({
   selector: 'workout-exercise',
@@ -28,7 +28,7 @@ export class WorkoutExercise {
       weight: 0,
       reps: 0,
       repRange: {} as RepRange,
-      restTime: {} as RestTime,
+      restTime: { minRestTime: 300, maxRestTime: 0 } as RestTime,
     } as ExerciseSet,
   ]);
   public isSetsEmpty = computed(() => this.sets().length === 0);
@@ -56,7 +56,7 @@ export class WorkoutExercise {
         weight: 0,
         reps: 0,
         repRange: {} as RepRange,
-        restTime: {} as RestTime,
+        restTime: { minRestTime: 0, maxRestTime: 0 } as RestTime,
       } as ExerciseSet,
     ]);
   }

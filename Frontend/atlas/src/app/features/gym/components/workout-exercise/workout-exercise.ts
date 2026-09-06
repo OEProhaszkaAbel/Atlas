@@ -3,6 +3,7 @@ import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
 import { RepRange } from '@gym-models/Exercises/RepRange';
 import { EMPTY_REST_TIME, RestTime } from '@gym-models/Exercises/RestTime';
 import { DEFAULT_SET_TYPE } from '@gym-models/Exercises/SetType';
+import { Weight } from '@gym-models/Exercises/Weight';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronDown, lucideChevronUp, lucidePlus } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
@@ -26,8 +27,10 @@ export class WorkoutExercise {
       id: 1,
       isCompleted: false,
       setType: DEFAULT_SET_TYPE,
-      weight: 0,
-      unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
+      weight: {
+        value: 0,
+        unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
+      } as Weight,
       reps: 0,
       repRange: {} as RepRange,
       restTime: EMPTY_REST_TIME,
@@ -55,8 +58,10 @@ export class WorkoutExercise {
         id: 0,
         isCompleted: false,
         setType: DEFAULT_SET_TYPE,
-        weight: 0,
-        unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
+        weight: {
+          value: 0,
+          unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
+        } as Weight,
         reps: 0,
         repRange: {} as RepRange,
         restTime: { minRestTime: 0, maxRestTime: 0 } as RestTime,

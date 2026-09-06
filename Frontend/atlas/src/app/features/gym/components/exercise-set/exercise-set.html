@@ -15,7 +15,7 @@
 
   <set-type-dropdown [(selectedSetType)]="set().setType" />
 
-  <!-- <input hlmInput placeholder="Enter reps" /> TODO: replace with rep-range-input-popover -->
+  <rep-range-input-popover [(repRange)]="set().repRange" />
   <weight-input-popover [(weight)]="set().weight" />
 
   <rest-time-popover [(restTime)]="set().restTime" />

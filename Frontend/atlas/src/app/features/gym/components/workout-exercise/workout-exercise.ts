@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
-import { RepRange } from '@gym-models/Exercises/RepRange';
+import { EMPTY_REP_RANGE } from '@gym-models/Exercises/RepRange';
 import { EMPTY_REST_TIME, RestTime } from '@gym-models/Exercises/RestTime';
 import { DEFAULT_SET_TYPE } from '@gym-models/Exercises/SetType';
 import { Weight } from '@gym-models/Exercises/Weight';
@@ -32,7 +32,7 @@ export class WorkoutExercise {
         unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
       } as Weight,
       reps: 0,
-      repRange: {} as RepRange,
+      repRange: EMPTY_REP_RANGE,
       restTime: EMPTY_REST_TIME,
     } as ExerciseSet,
   ]);
@@ -63,7 +63,7 @@ export class WorkoutExercise {
           unit: 'kg', // TODO: Make this dynamic based on user preference (i.e. from service, local storage, etc.)
         } as Weight,
         reps: 0,
-        repRange: {} as RepRange,
+        repRange: EMPTY_REP_RANGE,
         restTime: { minRestTime: 0, maxRestTime: 0 } as RestTime,
       } as ExerciseSet,
     ]);

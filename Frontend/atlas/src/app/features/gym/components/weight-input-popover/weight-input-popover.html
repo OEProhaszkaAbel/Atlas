@@ -1,0 +1,33 @@
+<hlm-popover sideOffset="5" align="start" [closeOnOutsidePointerEvents]="true">
+  <button
+    hlmPopoverTrigger
+    hlmBtn
+    variant="outline"
+    title="Set the weight"
+    size="icon"
+    class="transition-colors duration-300 ease-in-out"
+  >
+    <ng-icon name="lucideDumbbell" />
+  </button>
+  <hlm-popover-content *hlmPopoverPortal="let ctx">
+    <hlm-field>
+      <hlm-input-group>
+        <input
+          hlmInputGroupInput
+          id="weight-input"
+          type="number"
+          placeholder="Enter the weight"
+          [(ngModel)]="weight().value"
+          (ngModelChange)="onWeightChange($event)"
+          min="0"
+          onlyInteger
+        />
+
+        <hlm-input-group-addon align="inline-start"> </hlm-input-group-addon>
+        <hlm-input-group-addon align="inline-end">
+          <unit-system-dropdown [(selectedUnitSystem)]="weight().unit" />
+        </hlm-input-group-addon>
+      </hlm-input-group>
+    </hlm-field>
+  </hlm-popover-content>
+</hlm-popover>

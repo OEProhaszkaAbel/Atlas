@@ -1,0 +1,21 @@
+<div>
+  <button hlmBtn variant="outline" [hlmDropdownMenuTrigger]="unitSystems" align="end">
+    <span class="inline-flex size-6 items-center justify-center rounded-full">
+      {{ selectedUnitSystem() }}
+    </span>
+  </button>
+
+  <ng-template #unitSystems>
+    <hlm-dropdown-menu class="w-48">
+      @for (unitSystem of getUnitSystems(); track $index) {
+        <hlm-dropdown-menu-item class="p-0" (click)="changeUnitSystem(unitSystem)">
+          <hlm-item size="xs" class="w-full p-2">
+            <hlm-item-content class="gap-0">
+              <hlm-item-title [title]="unitSystem">{{ unitSystem }}</hlm-item-title>
+            </hlm-item-content>
+          </hlm-item>
+        </hlm-dropdown-menu-item>
+      }
+    </hlm-dropdown-menu>
+  </ng-template>
+</div>

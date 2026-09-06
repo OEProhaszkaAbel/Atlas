@@ -11,6 +11,7 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
 import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
 import { SetTypeDropdown } from '../set-type-combobox/set-type-dropdown';
+import { WeightInputPopover } from '../weight-input-popover/weight-input-popover';
 
 @Component({
   selector: 'exercise-set',
@@ -25,6 +26,7 @@ import { SetTypeDropdown } from '../set-type-combobox/set-type-dropdown';
     NgIcon,
     RestTimePopover,
     SetTypeDropdown,
+    WeightInputPopover,
   ],
   providers: [provideIcons({ lucideDelete })],
   templateUrl: './exercise-set.html',

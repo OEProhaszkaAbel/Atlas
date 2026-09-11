@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, ElementRef, inject, input, output, signal } from '@angular/core';
 import { ExerciseSet } from '@gym-models/Exercises/ExerciseSet';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideDelete } from '@ng-icons/lucide';
@@ -35,8 +35,13 @@ import { WeightInputPopover } from '../weight-input-popover/weight-input-popover
   providers: [provideIcons({ lucideDelete })],
   templateUrl: './exercise-set.html',
   styleUrl: './exercise-set.css',
+  host: {
+    '(click)': 'cardClicked($event)',
+  },
 })
 export class ExerciseSetComponent {
+  private elementRef: ElementRef<HTMLElement> = inject(ElementRef<HTMLElement>);
+
   public set = input<ExerciseSet>({} as ExerciseSet);
   public completionChanged = output<boolean>();
   public deleteSet = output<void>();
@@ -44,6 +49,14 @@ export class ExerciseSetComponent {
   public isHovered = signal<boolean>(false);
 
   constructor() {}
+
+  cardClicked(event: PointerEvent) {
+    const isTarget = this.elementRef.nativeElement == (event.target as Node).parentElement;
+
+    if (isTarget) {
+      this.toggleCompletion();
+    }
+  }
 
   onDelete() {
     this.deleteSet.emit();

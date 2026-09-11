@@ -11,4 +11,5 @@ export interface ExerciseSet {
   reps: number;
   repRange: RepRange;
   restTime: RestTime;
+  comment: string;
 }

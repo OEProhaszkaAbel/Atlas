@@ -1,0 +1,29 @@
+<hlm-popover sideOffset="5" align="start" [closeOnOutsidePointerEvents]="true">
+  <button
+    hlmPopoverTrigger
+    hlmBtn
+    variant="outline"
+    title="Set the comment"
+    size="icon"
+    class="transition-colors duration-300 ease-in-out"
+  >
+    <ng-icon name="lucideNotebookText" />
+  </button>
+  <hlm-popover-content *hlmPopoverPortal="let ctx">
+    <fieldset hlmFieldSet>
+      <div hlmFieldGroup>
+        <div hlmField>
+          <label hlmFieldLabel for="comment-textarea">Comment</label>
+          <textarea
+            hlmTextarea
+            id="comment-textarea"
+            placeholder="Enter the comment..."
+            [(ngModel)]="comment"
+            (ngModelChange)="onCommentChange($event)"
+            class="min-h-[100px] resize-none"
+          ></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </hlm-popover-content>
+</hlm-popover>

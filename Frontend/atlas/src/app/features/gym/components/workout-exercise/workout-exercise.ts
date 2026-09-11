@@ -34,6 +34,7 @@ export class WorkoutExercise {
       reps: 0,
       repRange: EMPTY_REP_RANGE,
       restTime: EMPTY_REST_TIME,
+      comment: '',
     } as ExerciseSet,
   ]);
   public isSetsEmpty = computed(() => this.sets().length === 0);
@@ -65,6 +66,7 @@ export class WorkoutExercise {
         reps: 0,
         repRange: EMPTY_REP_RANGE,
         restTime: { minRestTime: 0, maxRestTime: 0 } as RestTime,
+        comment: '',
       } as ExerciseSet,
     ]);
   }

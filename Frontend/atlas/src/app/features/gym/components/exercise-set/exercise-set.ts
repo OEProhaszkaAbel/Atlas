@@ -9,6 +9,7 @@ import { HlmComboboxImports } from '@spartan-ng/helm/combobox';
 import { HlmFieldImports } from '@spartan-ng/helm/field';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
+import { CommentInputPopover } from '../comment-input-popover/comment-input-popover';
 import { RepRangeInputPopover } from '../rep-range-input-popover/rep-range-input-popover';
 import { RestTimePopover } from '../rest-time-popover/rest-time-popover';
 import { SetTypeDropdown } from '../set-type-combobox/set-type-dropdown';
@@ -29,6 +30,7 @@ import { WeightInputPopover } from '../weight-input-popover/weight-input-popover
     SetTypeDropdown,
     WeightInputPopover,
     RepRangeInputPopover,
+    CommentInputPopover,
   ],
   providers: [provideIcons({ lucideDelete })],
   templateUrl: './exercise-set.html',
